@@ -14,8 +14,8 @@ typedef struct
 {
     int l,w,h;
 }node_t;
-node_t book[4000];
-int d[4000];
+node_t book[3000+10];
+int d[3000+10];
 
 int graph(int a,int b,int c)
 {
@@ -24,7 +24,7 @@ int graph(int a,int b,int c)
     book[ans++].h=c;
 }
 
-vector<int> vec[4000];
+vector<int> vec[3000+10];
 
 int dp(int j)
 {
@@ -37,13 +37,15 @@ int dp(int j)
     return d[j];
 }
 
-int create(int h)
+int create()
 {
-    for(int i=1;i<=ans;i++)
+    for(int i=1;i<ans;i++) vec[i].clear();
+    for(int i=1;i<ans;i++)
     {
-        if((book[h].l > book[i].l && book[h].w > book[i].w) || (book[h].l>book[i].w &&book[h].w>book[i].l))
+        for(int j=1;j<ans;j++)
         {
-            vec[h].push_back(i);
+            if(book[i].l>book[j].l && book[i].w>book[j].w)
+            vec[i].push_back(j);
         }
     }
 }
@@ -54,7 +56,6 @@ int main()
     while(cin >> m && m)
     {
         memset(d,0,sizeof(d));
-        memset(book,0,sizeof(book));
         flag=0;
         ans=1;
         for(int i=0;i<m;i++)
@@ -64,12 +65,8 @@ int main()
             graph(z,x,y);
             graph(y,z,x);
         }
+        create();
         for(int i=1;i<ans;i++)
-        {
-            vec[i].clear();
-            create(i);
-        }
-        for(int i=1;i<=ans;i++)
         {
             flag=max(flag,dp(i));
         }
