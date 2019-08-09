@@ -1,14 +1,14 @@
-3
+[expelliarmus] the disarming charm
+[rictusempra] send a jet of silver light to hit the enemy
+[tarantallegra] control the movement of one's legs
+[serpensortia] shoot a snake out of the end of one's wand
+[lumos] light the wand
+[obliviate] the memory charm
+[expecto patronum] send a Patronus to the dementors
+[accio] the summoning charm
+@END@
 4
-ACGT
-ACGTGCGT
-ACCGTGC
-ACGCCGT
-3
-CGCGCGCGCGCGCCCCGCCCGCGC
-CGCGCGCGCGCGCCCCGCCCGCAC
-CGCGCGCGCGCGCCCCGCCCGCTC
-2
-CGCGCCGCGCGCGCGCGCGC
-GGCGCCGCGCGCGCGCGCTC
-
+[lumos]
+the summoning charm
+[arha]
+take me to the sky
