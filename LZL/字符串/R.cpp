@@ -10,42 +10,31 @@ using namespace std;
 
 vector<string>vec;
 string str;
-int tree[1010][23];
-int num[1010];
-int tot,root;
+int tree[200000][30];
+int num[200000];
+int tot=1,root=1;
 
-int insert(string &str)
-{
-    root=0;
-    int len=str.size();
-    for(int i=0;i<len;i++)
-    {
-        int a=str[i]-'a';
-        if(!tree[root][a])
-        tree[root][a]=++tot;
-        num[tree[root][a]]++;
+void insert(string & s){
+    int root = 1;
+    for(int i = 0; i < s.length(); i ++){
+        int a = s[i] - 'a';
+        if(tree[root][a] == 0) 
+        tree[root][a] = ++tot;
+        root=tree[root][a];
+        num[root] ++;
+    }
+}
+int query(string & str){
+    int root=1;
+    cout << str <<" ";
+    for(int i = 0; i < str.length(); i ++){
+        if(num[root] == 1)
+        return 0;
+        int a=str[i] - 'a';
+        cout<<str[i];
         root=tree[root][a];
     }
 }
-
-int query(string &str)
-{
-    root=0;
-    cout << str << " ";
-    int len=str.size();
-    for(int i=0;i<len;i++)
-    {
-        int a=str[i]-'a';
-        if(num[tree[root][a]]==1)
-        {
-            printf("%c",str[i]);
-            return 0;
-        }
-        root=tree[root][a];
-        printf("%c",str[i]);
-    }
-}
-
 int main()
 {
     while(cin >> str)
