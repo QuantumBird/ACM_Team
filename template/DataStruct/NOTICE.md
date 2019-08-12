@@ -1,4 +1,4 @@
-*** Data struct code template
+### Data struct code template
 ---
 This template is mainly focus on:
 * Binary Index Tree(BIT):
