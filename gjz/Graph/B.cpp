@@ -24,6 +24,8 @@ bool input(){
     memset(vis, true, sizeof(vis));
     for(int i = 0; i < maxn; i ++)
         dis[i] = INT_MAX;
+    for(int i = 0; i <= en*2; i ++)
+        g[i].clear();
     string s, t;
     cin>>s>>t;
     dict[s] = vn ++;
