@@ -14,10 +14,10 @@ int main() {
             tmp = __gcd(tmp, inp);
     }
     long long int ans = 0;
-    for(long long i = 1; i*i <= tmp; i ++){
+    for(long long i = 1; i * i <= tmp; i ++){
         if(tmp % i == 0){
             ans ++;
-            if(i*i != tmp)
+            if(i * i != tmp)
                 ans ++;
         }
     }
