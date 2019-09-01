@@ -3,6 +3,7 @@
 using namespace std;
 const int maxn = 101*4;
 int a[maxn];
+bool note[maxn]
 int main(){
     int q;
     cin>>q;
