@@ -19,7 +19,7 @@ using namespace std;
 
 int m,n;
 int tmpa,tmpb,tmpc;
-int edge[300][300]; //缩点之后数组开小点
+int edge[300][300];
 vector<int>G[51000];
 stack<int>sta;
 set<int>se;
