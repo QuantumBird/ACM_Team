@@ -46,9 +46,11 @@ bool solve(){
 int main(){
     for(int i=0;i<3;++i)
     cin >> book[i].x1 >> book[i].y1 >> book[i].x2 >> book[i].y2; 
-    if(book[0] == book[1] && book[1]==book[2]){
-        cout << "NO\n";
-        return 1;
+    if(book[0] == book[1]){
+        if(book[1]==book[2]){
+            cout << "NO\n";
+            return 1;
+        }
     }
     for(int i=0;i<3;++i){
         for(int d=-1;d<=1;++d){
