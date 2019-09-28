@@ -1,3 +1,5 @@
+//bfs建图 + 最小生成树
+//希望熟练掌握邻接表和邻接矩阵写法
 #include<iostream>
 #include<algorithm>
 #include<string>
@@ -14,19 +16,21 @@
 #include<cstring>
 using namespace std;
 
-const int INF = 0x3f3f3f3f;
-const int maxn = 2000;
-typedef pair<int,int>pa;
-typedef pair<int,pa>pii;
-bool vis[maxn][maxn];
-int w[maxn][maxn];
-char mp[maxn][maxn];
-int low[maxn];
-int q,m,n,flag;
-map<pa,int>id;
-vector<pa>vec;
-int x[4] = {0,0,-1,1};
-int y[4] = {1,-1,0,0};
+namespace{
+    const int INF = 0x3f3f3f3f;
+    const int maxn = 2000;
+    typedef pair<int,int>pa;
+    typedef pair<int,pa>pii;
+    bool vis[maxn][maxn];
+    int w[maxn][maxn];
+    char mp[maxn][maxn];
+    int low[maxn];
+    int q,m,n,flag;
+    map<pa,int>id;
+    vector<pa>vec;
+    int x[4] = {0,0,-1,1};
+    int y[4] = {1,-1,0,0};
+}
 
 int bfs(pa& p){//结点的结构体选取很重要
     memset(vis,0,sizeof(vis));
@@ -89,7 +93,7 @@ int main(){
         scanf("%d %d",&m,&n);
         cin.getline(mp[0],100);
         for(int i=0;i<n;++i){
-            cin.getline(mp[i],100);
+            cin.getline(mp[i],100);//gets用不了
             for(int j=0;j<m;++j){
                 if(mp[i][j]=='A' || mp[i][j]=='S'){
                     id[make_pair(i,j)] = vec.size(); //给每一个点给予一个编号
