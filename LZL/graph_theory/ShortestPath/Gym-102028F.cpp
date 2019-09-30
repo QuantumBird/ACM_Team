@@ -14,6 +14,7 @@ const int INF = 0x3f3f3f3f;
 struct node{
 	int x,y,steps;
 };
+int ans;
 int bfs(int a,int b){
 	queue<node>que; 
 	node tmpp = {a,b,1}; 
@@ -30,8 +31,8 @@ int bfs(int a,int b){
 			int yy = temp.y+y[i];
 			int t_xx = temp.x+c[i];
 			int t_yy = temp.y+d[i];
-            if(t_xx>=0 && t_xx<tmp && t_yy>=0 && t_yy<len && mp[t_xx][t_yy]==' '){
-                if(temp.steps+1<vis[xx][yy] && xx>=0 && xx<tmp && yy>=0 && yy<len){
+            if(mp[t_xx][t_yy]==' '){
+                if((temp.steps+1)<vis[xx][yy]){
                     node tt = {xx,yy,temp.steps+1};
                     que.push(tt);
                     vis[xx][yy] = temp.steps+1;
@@ -48,12 +49,10 @@ int main()
 		scanf("%d %d",&m,&n);
         getchar();
 		tmp = 4*m + 3;
-/* 		for(int i=0;i<tmp;++i){
-			cin.getline(mp[i],2010);
-		} */
         len = 6*n + 3;
 		for(int k=0;k<tmp;++k){
-            gets(mp[i]);
+            //gets(mp[k]);
+            cin.getline(mp[k],2010);
 			for(int q=0;mp[k][q]!='\0';++q){
                 vis[k][q] = INF;
 				if(mp[k][q]=='T'){
