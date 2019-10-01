@@ -33,7 +33,10 @@ int main(){
             continue;
         }
         for(int i=1;i<n;++i){
-            if(tmpa[i]=='1'){
+            if(tmpa[i]=='1' && i==n-1 && flag==1){
+                printf("NO\n");
+                ans = 1;
+                break;
             }else if(tmpa[i]=='2'){
                 flag = -flag;
             }else if(tmpa[i]=='3'){
@@ -50,7 +53,9 @@ int main(){
                 }
             }
         }
-        if(!ans) printf("YES\n");
+        if(flag==1 && !ans){
+            printf("NO\n");
+        }else if(!ans) printf("YES\n");
     }
     return 0;
 }
