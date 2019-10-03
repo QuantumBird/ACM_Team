@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+//这道题告诉我区间操作不一定是线段树　好好学习吧　少年
 int q,m,n,l,r;
 char ch;
 set<int>se[26];
@@ -13,24 +13,20 @@ int main(){
     }
     cin >> q;
     while(q--){
-        cin >> m;
+        scanf("%d",&m);
         if(m==1){
-            cin >> n >> ch;
+            scanf("%d %c",&n,&ch);
             se[str[n-1]-'a'].erase(n);
             str[n-1] = ch;
             se[ch-'a'].insert(n);
         }else{
             int ans = 0;
-            cin >> l >> r;
+            scanf("%d %d",&l,&r);
             for(int i=0;i<26;++i){
-                for(int j=l;j<=r;++j){
-                    if(se[i].find(j)!=se[i].end()){
-                        ++ans;
-                        break;
-                    }
-                }
+               auto pi = se[i].lower_bound(l);
+               if(pi!=se[i].end() && *pi<=r) ++ans;
             }
-            cout << ans << endl;
+            printf("%d\n",ans);
         }
     }
     return 0;
