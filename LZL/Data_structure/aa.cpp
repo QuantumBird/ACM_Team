@@ -10,7 +10,7 @@ int lowbit(int x)
     return x&(-x);
 }
 void update(int x,int val){
-    while(x<=n){
+    while(x<=n){   
         tree[x]+=val;
         x+=lowbit(x);
     }
