@@ -45,7 +45,7 @@ int main(){
     }
     do{
         ans = max(ans,judge());
-    }while(next_permutation(color+1,color+8));//精髓所在
+    }while(next_permutation(color+1,color+8));//精髓所在 全排列　学到了
     cout << ans << endl;
     return 0;
 }
