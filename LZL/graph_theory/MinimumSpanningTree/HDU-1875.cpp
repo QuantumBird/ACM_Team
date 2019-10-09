@@ -66,7 +66,6 @@ namespace{
 }
 
 int main(){
-    std::ios::sync_with_stdio(false);
     cin >> q;
     while(q--){
         Kruskal KK;
@@ -91,7 +90,7 @@ int main(){
         if(temp==-1){
             cout << "oh!\n";
         }else{
-            cout << temp/10 << endl;
+            printf("%.1f\n",temp/10);
         }
     }
     return 0;
