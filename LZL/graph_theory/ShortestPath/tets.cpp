@@ -82,7 +82,7 @@ int main()
         int a,b,c,s,t;
         for(int i=1; i<=m; i++)
         {
-            scanf("%d%d%d",&a,&b,&c);//因为题目中可能有重变，所以要用临街表存储
+            scanf("%d%d%d",&a,&b,&c);//因为题目中可能有重变，所以要用邻接表存储
             addedge(a,b,c);
         }
         scanf("%d%d",&s,&t);

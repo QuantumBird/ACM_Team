@@ -1,3 +1,5 @@
+//这道题给我一个思路　对于边权有优先级的情况　可以从图的权值为零入手
+//参考超级源点
 #include<iostream>
 #include<algorithm>
 #include<string>
@@ -14,30 +16,32 @@ using namespace std;
 using pa = pair<int,int>;
 int m,n;
 int tmpa,tmpb,tmpc;
+size_t ans;
 struct node{
     int to,w;
 };
-const int maxn = 2000+10;
+const int maxn = 105;
 const int INF = 0x3f3f3f3f;
 vector<node> G[maxn];
 int dis[maxn];
-int Dijkstra(){
+
+void Dijkstra(){
     priority_queue<pa,vector<pa>,greater<pa> >que;
     fill(dis,dis+maxn,INF);
-    dis[n] = 0;
-    que.emplace(make_pair(0,n));
+    que.push(make_pair(0,tmpa));
+    dis[tmpa] = 0;
     while(!que.empty()){
         pa temp = que.top();
         que.pop();
         int u = temp.first;
         int v = temp.second;
         if(dis[v] < u) continue;
-        size_t len = G[v].size();
+        std::size_t len = G[v].size();
         for(int i=0;i<len;++i){
-            node &x = G[v][i];
-            if(u + x.w < dis[x.to]){
-                dis[x.to] = u+x.w;
-                que.emplace(make_pair(dis[x.to],x.to));
+            node &T = G[v][i];
+            if(dis[v] + T.w < dis[T.to]){
+                dis[T.to] = dis[v] + T.w;
+                que.push(make_pair(dis[T.to],T.to));
             }
         }
     }
@@ -45,13 +49,17 @@ int Dijkstra(){
 
 int main(){
     std::ios::sync_with_stdio(false);
-    cin >> m >> n;
-    for(int i=0;i<m;++i){
-        cin >> tmpa >> tmpb >> tmpc;
-        G[tmpa].push_back({tmpb,tmpc});
-        G[tmpb].push_back({tmpa,tmpc});
+    cin >> m >> tmpa >> tmpb;
+    for(int i=1;i<=m;++i){
+        cin >> n;
+        for(int j=0;j<n;++j){
+            cin >> tmpc;
+            if(!j) G[i].push_back({tmpc,0});
+            else G[i].push_back({tmpc,1});
+        }
     }
     Dijkstra();
-    cout << dis[1] << endl;
+    if(dis[tmpb] == INF ) cout << -1 << endl;
+    else cout << dis[tmpb] << endl;
     return 0;
 }
