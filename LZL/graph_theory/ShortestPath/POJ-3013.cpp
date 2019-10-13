@@ -1,4 +1,5 @@
 //这个题的转化很有意思
+//这道题不能用vector 得用链式前向星
 #include<iostream>
 #include<algorithm>
 #include<string>
@@ -25,7 +26,7 @@ const int maxn = 50000+10;
 const int INF = 9999999999999;
 vector<node> G[maxn];
 long long dis[maxn];
-int weight[maxn];
+long long weight[maxn];
 
 void Dijkstra(){
     priority_queue<pa,vector<pa>,greater<pa> > que;
@@ -69,6 +70,10 @@ int main(){
         for(int i=1;i<=m;++i){
             if(dis[i] == INF) flag = 1;
             ans += dis[i]*weight[i];
+        }
+        if(n == 0 || n == 1){
+            cout << 0 << endl;
+            continue;
         }
         if(flag) cout << "No Answer\n";
         else cout << ans << endl;
