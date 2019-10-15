@@ -25,13 +25,15 @@ int Prim(){
     for(int i=1;i<=tmpb;i++) 
     que.push(make_pair(0,1));//从节点1开始
     int ans = 0;
-    int sum = 0;
+    int num = 0;
     while(!que.empty()){
         pa tmp = que.top();
         que.pop();
         if(flag[tmp.second]) continue;
         flag[tmp.second] = 1;
         ans += tmp.first;
+        ++num;
+        if(num == sum) break;
         int len = G[tmp.second].size();
         for(int i=0;i<len;++i){
             if(!flag[G[tmp.second][i].second]){
