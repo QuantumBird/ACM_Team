@@ -23,7 +23,7 @@ void SPFA(){
         int T = que.front();
         que.pop();
         stque.erase(T);
-        //在这里可以设置一个标记为来判断负环 对于一个正权图而言　每个点最多入队n-1次　因为负数会使最短路缩小
+//在这里可以设置一个标记为来判断负环 对于一个正权图而言　每个点最多入队n-1次　因为负数会使最短路缩小
         for(auto x : G[T]){
             if(dis[T] + x.w < dis[x.to]){
                 dis[x.to] = dis[T] + x.w;
