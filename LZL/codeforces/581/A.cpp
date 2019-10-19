@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+/* 
 int m,n,q;
 
 int main(){
@@ -22,4 +22,7 @@ int main(){
     if(zero != len) ++T;
     cout << T << endl;
     return 0;
-}
+} */
+
+char s[102];
+main(){scanf("%s",s);printf("%d",strlen(s)+!!strchr(s+1,'1')>>1);}
