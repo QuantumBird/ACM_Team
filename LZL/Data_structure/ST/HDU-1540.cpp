@@ -1,3 +1,4 @@
+//维护区间最长连续零　板子　下周再写
 #include<iostream>
 #include<algorithm>
 #include<string>
