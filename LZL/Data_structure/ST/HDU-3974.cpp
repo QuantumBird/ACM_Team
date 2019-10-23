@@ -27,7 +27,7 @@ int lazy[maxn<<2];
 vector<vector<int> >G(maxn);
 typedef pair<int,int> pa;
 pa Start_End[maxn];
-int T,m,n,lhs,rhs,w,from,to,cnt;
+int T,m,n,lhs,rhs,w,from,to,cnt,flag;
 char ch;
 
 void init(){
@@ -104,12 +104,13 @@ int main(){
         }
         for(int i=1;i<=m;++i){
             if(!in[i]){
-                dfs(i);//根节点
+                dfs(i);//根节点 不知道会不会出现森林
                 break;
             }
         }
         build(1,1,m);
         cin >> n;
+        cout << "Case #" << ++flag << ":\n";
         for(int i=0;i<n;++i){
             cin >> ch;
             if(ch == 'C'){
