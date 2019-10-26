@@ -1,4 +1,4 @@
-//轮廓线　可以当做板子
+//轮廓线　可以当做板子　(其中线段树维护一个区间连续段的长度和区间和)
 #include<iostream>
 #include<algorithm>
 #include<string>
@@ -52,7 +52,7 @@ void init(){
 }
 
 void push_up(int q,int l,int r){
-    if(segt[q].lazy > 0){//这很重要
+    if(segt[q].lazy > 0){//这很重要 lazy标记是不用修改的
         segt[q].len = vec[r+1] - vec[l];
         segt[q].lr = segt[q].rr = true;
         segt[q].sum = 1;
