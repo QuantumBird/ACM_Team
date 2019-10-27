@@ -48,18 +48,18 @@ int main(){
             cin >> n;
             switch (n)
             {
-                case 0:
+                case 0://添加
                     cin >> tmpa;
                     add(tmpa,1);
                     break;
-                case 1:
+                case 1://删除
                     cin >> tmpa;
                     if(sum(tmpa) - sum(tmpa-1) == 0){
                         cout << "No Elment!\n";
                     }else add(tmpa,-1);
                     break;
                 case 2:
-                    cin >> tmpa >> tmpb;
+                    cin >> tmpa >> tmpb;//比tmpa大的第tmpb个数
                     int left = tmpa;
                     int right = maxn;
                     int mid = 0;

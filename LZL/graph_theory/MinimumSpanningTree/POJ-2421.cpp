@@ -30,7 +30,7 @@ int Prim(){
         low[i] = mp[1][i];
     }
     for(int i=2;i<=sum;++i){
-        int MAX = INF;
+        int MAX = INF;//0x3f3f3f3f
         for(int j=1;j<=sum;++j){
             if(!flag[j] && low[j]<MAX){
                 MAX = low[p=j];

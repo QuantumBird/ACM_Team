@@ -18,10 +18,10 @@ int q,m,n,tmp;
 vector<int>G[1010];
 set<int>se;//记录栈中元素
 stack<int>sta;
-int id[1010];//缩点
+int id[1010];//缩点后的点
 int size_all[1010];
 int dfn[1010];
-int low[1010];
+int low[1010];//最低度
 int in[1010];//入度
 int out[1010];//出度
 int flag,num,tmpa;
