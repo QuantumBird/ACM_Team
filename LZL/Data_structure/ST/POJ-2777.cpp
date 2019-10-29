@@ -37,7 +37,7 @@ void push_up(int q){
 
 void build(int q,int l,int r){
     if(l == r){
-        segt[q] = 2;
+        segt[q] = 2;//2的1次方
         return;
     }
     int m = mid;
@@ -81,21 +81,27 @@ int query(int q,int l,int r,int lhs,int rhs){
     return ans;
 }
 
+void init(){
+    memset(segt,0,sizeof(segt));
+    memset(lazy,0,sizeof(lazy));
+}
+
 int main(){
     for(int i=0;i<=31;++i){
         book[i] = pow(2,i);
     }
     std::ios::sync_with_stdio(false);
-    cin >> L >> T >> O;
-    build(1,1,L);   
-    for(int i=0;i<O;++i){
-        cin >> ch;
-        if(ch == 'C'){
-            cin >> lhs >> rhs >> w;
-            update(1,1,L,lhs,rhs,book[w]);
-        }else{
-            cin >> lhs >> rhs;
-            cout << judge(query(1,1,L,lhs,rhs)) << endl;
+    while(cin >> L >> T >> O){
+        build(1,1,L);   
+        for(int i=0;i<O;++i){
+            cin >> ch >> lhs >> rhs;
+            if(lhs > rhs) swap(lhs,rhs);
+            if(ch == 'C'){
+                cin >>w;
+                update(1,1,L,lhs,rhs,book[w]);
+            }else{
+                cout << judge(query(1,1,L,lhs,rhs)) << endl;
+            }
         }
     }
     return 0;
