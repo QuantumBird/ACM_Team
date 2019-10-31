@@ -66,7 +66,7 @@ int main(){
                         set<pa>se;
 						cin >> len >> w;
 						for(auto x : G[len]){
-							if(m-x.first >= 1){
+							if(m-x.first >= 1 && m-x.first<=6000){
 								for(auto &T : vec[m-x.first]){
                                     pa temp = make_pair(m-x.first,T.first);
 									if(abs(T.first-n) == x.second && se.find(temp) == se.end()){
@@ -75,7 +75,7 @@ int main(){
 									}
 								}
 							}
-							if(m+x.first<=6000){
+							if(m+x.first<=6000 && m+x.first>=1){
 								for(auto &T : vec[m+x.first]){
                                     pa temp = make_pair(m+x.first,T.first);
 									if(abs(T.first-n) == x.second && se.find(temp) == se.end()){
@@ -93,7 +93,7 @@ int main(){
 						int ans = 0;
 						cin >> len;
 						for(auto x : G[len]){
-							if(m-x.first >= 1){
+							if(m-x.first >= 1 && m-x.first<=6000){
 								for(auto &T : vec[m-x.first]){
                                     pa temp = make_pair(m-x.first,T.first);
 									if(abs(T.first-n) == x.second && se.find(temp)==se.end()){
@@ -104,7 +104,7 @@ int main(){
 									}
 								}
 							}
-							if(m+x.first<=6000){
+							if(m+x.first<=6000 && m+x.first>=1){
 								for(auto &T : vec[m+x.first]){
                                     pa temp = make_pair(m+x.first,T.first);
 									if(abs(T.first-n) == x.second && se.find(temp)==se.end()){
