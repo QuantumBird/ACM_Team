@@ -21,6 +21,7 @@ int main(){
             sum++;
             Count = 0;
             for(int i=0;i<x;++i){
+                if(flag[i] > 1) Count++;
                 --flag[i];
             }
         }
